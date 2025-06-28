@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock,Paper,Scissors</title>
+    <style>
+        body{
+            background-color:#002745;
+            color: white;
+            
+            font-weight: bold;
+            font-family:Fantasy;
+        }
+        .ig{
+            height: 190px;
+            padding: 10px;
+        }
+        .b1{
+            border: 5px solid  #0c4876;
+            background-color: transparent;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-right: 15px;
+            transition:white 2s ease,transform 0.2s;
+            
+        }
+        
+        .b1:hover {
+           box-shadow: 1px 5px 10px #16c4be;
+           transform: scale(1.25);
+        }
+
+       
+        h3{
+            font-size: 40px;
+            margin: 0;
+            color: rgb(22, 196, 190);
+            text-align: center;
+
+        }
+        span{
+            color: #ff4d4d;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: center;
+            gap: 20px;
+            margin-top: .5rem;
+        }
+        h4{
+            margin: 1.5rem;
+            font-size: 35px;
+            color: #16c4be;
+            text-align: center;
+        }
+        
+        #b2{
+        background-color: #ff4d4d;
+        color:black;
+        font-weight: bold;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition:white 2s ease,transform 0.2s;
+        margin-top: 1.5rem;
+
+        }
+         #b2:hover {
+           box-shadow: 1px 5px 10px rgb(228, 31, 31);
+           transform: scale(1.05);
+        }
+
+        .cl{
+            display: flex;
+            text-align: center;
+            justify-content: center; 
+        }
+      
+        .tab{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .tab,th{
+            font-weight: normal;
+            font-size: 1.5rem;
+            color: rgb(124, 213, 235);
+        }
+        .tbl{
+            width: 500px;
+            border:3px solid #2b4573;
+        }
+        .tbl,td{
+            text-align: center;
+        }
+
+        .j-score,.jb-score,.jd-score{
+            color: rgb(15, 234, 193);
+        }
+        .p1{
+            display: flex;
+            justify-content: center;
+            margin-left: 20px;
+            font-weight: normal;
+            font-size: 22px;
+        }
+        .po{
+            height: 90px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<script>
+
+let Score = JSON.parse(localStorage.getItem('Score'));
+if(Score === null){
+    Score={
+        win:0,
+        loss:0,
+        tie:0
+    };
+}
+document.querySelector('.j-score').innerHTML=`${Score.win}`;
+document.querySelector('.jb-score').innerHTML=`${Score.loss}`;
+document.querySelector('.jd-score').innerHTML=`${Score.tie}`;
+function rock(){
+
+ let randomNumber = Math.random();
+        let check='';
+        const player = 'rock';
+        if(randomNumber >= 0 && randomNumber <=1/3){
+            check = 'rock';
+        }
+        else if(randomNumber>=1/3 && randomNumber<=2/3){
+            check='paper';
+
+        }
+        else if(randomNumber >=2/3 && randomNumber <=1){
+            check ='scissors';
+        }
+
+        let result='';
+        if(check==='rock'){
+            result='tie';
+        }
+        else if(check==='paper'){
+            result='You lose';
+        }
+        else if(check==='scissors'){
+            result='You win';
+        }
+        
+        if(result==='You win'){
+            Score.win+=1;
+        }
+        else if(result==='You lose'){
+            Score.loss+=1;
+        }
+        else if(result==='tie'){
+           Score.tie+=1;
+        }
+
+        localStorage.setItem('Score',JSON.stringify(Score));
+    
+
+document.querySelector('.j-score').innerHTML=`${Score.win}`;
+document.querySelector('.jb-score').innerHTML=`${Score.loss}`;
+document.querySelector('.jd-score').innerHTML=`${Score.tie}`;
+
+
+
+document.getElementById('user').src = getImage(player);
+document.getElementById('computer').src = getImage(check);
+}
+
+function paper(){
+let randomNumber1 = Math.random();
+    let check1='';
+    const player = 'paper';
+    let computerChoice = '';
+    if(randomNumber1 >=0 && randomNumber1 <= 1/3){
+        check1='rock';
+    }
+    else if(randomNumber1 >=1/3 && randomNumber1 <= 2/3){
+        check1='paper';
+
+    }
+    else if(randomNumber1 >=2/3 && randomNumber1 <=1){
+        check1='scissors';
+    }
+    
+    let result1 = '';
+
+    if(check1==='rock'){
+        result1='You win';
+    }
+    else if(check1==='paper'){
+        result1='tie';
+    }
+    else if(check1==='scissors'){
+        result1='You lose';
+    }
+
+
+    if(result1==='You win'){
+            Score.win+=1;
+        }
+    else if(result1==='You lose'){
+            Score.loss+=1;
+        }
+    else if(result1==='tie'){
+           Score.tie+=1;
+        }
+
+
+document.querySelector('.j-score').innerHTML=`${Score.win}`;
+document.querySelector('.jb-score').innerHTML=`${Score.loss}`;
+document.querySelector('.jd-score').innerHTML=`${Score.tie}`;
+
+
+document.getElementById('user').src = getImage(player);
+document.getElementById('computer').src = getImage(check1);
+}
+
+function getImage(choice) {
+    return `./Assets/${choice}-emoji.png`;
+}
+
+function scissors(choice){
+let randomNumber2 = Math.random();
+    let check2='';
+    const player = 'scissors';
+    if(randomNumber2 >=0 && randomNumber2 <= 1/3){
+        check2='rock';
+    }
+    else if(randomNumber2 >=1/3 && randomNumber2 <= 2/3){
+        check2='paper';
+
+    }
+    else if(randomNumber2 >=2/3 && randomNumber2 <=1){
+        check2='scissors';
+    }
+    
+    let result2 = '';
+
+    if(check2==='rock'){
+        result2='You lose';
+    }
+    else if(check2==='paper'){
+        result2='You win';
+    }
+    else if(check2==='scissors'){
+        result2='tie';
+    }
+   
+     if(result2==='You win'){
+            Score.win+=1;
+        }
+    else if(result2==='You lose'){
+            Score.loss+=1;
+        }
+    else if(result2==='tie'){
+           Score.tie+=1;
+        }
+
+
+document.querySelector('.j-score').innerHTML=`${Score.win}`;
+document.querySelector('.jb-score').innerHTML=`${Score.loss}`;
+document.querySelector('.jd-score').innerHTML=`${Score.tie}`;
+
+
+document.getElementById('user').src = getImage(player);
+document.getElementById('computer').src = getImage(check2);
+}
+
+</script>
+<body>
+    <h3><span>R</span>ock - <span>Paper</span> - <span>S</span>cissor </h3>
+    <div class="box">
+    
+    <button onclick="rock()" class="b1" id="p1"><img src="./Assets/rock-emoji.png" alt="rock" class="ig"> </button>
+        
+    <button onclick="paper()" class="b1" id="p2"><img src="./Assets/paper-emoji.png" alt="paper" class="ig"></button>
+
+    <button onclick="scissors()" class="b1" id="p3"> <img src="./Assets/scissors-emoji.png" alt="scissors" class="ig"></button>
+</div>
+
+<h4>Result</h4> 
+<p class="p1" > You<img src="./Assets/${choice}-emoji.png" alt="" class="po" id="user">
+     &nbsp;&nbsp;&nbsp;&nbsp;<span> VS </span>
+           <img src="./Assets/${choice}-emoji.png" alt="" class="po" id="computer">
+Computer
+</p>
+
+<h4>Score <span>= </span>board</h4>
+
+<div class="tab">
+<table  class="tbl" border="5">
+    <tr>
+        <th>Win</th>
+        <th>Loss</th>
+        <th>Tie</th>
+    </tr>
+
+    <tr>
+        <td><p class="j-score"></p></td>
+        <td><p class="jb-score"></p></td>
+        <td><p class="jd-score"></p></td>
+    </tr>
+</table>
+
+</div>
+
+<div class="cl">
+<button id="b2" onclick="
+Score.win = 0;
+Score.loss = 0;
+Score.tie = 0;
+document.getElementById('user').src = '';
+document.getElementById('computer').src = '';
+localStorage.removeItem('Score');
+document.querySelector('.j-score').innerHTML=`${Score.win}`;
+document.querySelector('.jb-score').innerHTML=`${Score.loss}`;
+document.querySelector('.jd-score').innerHTML=`${Score.tie}`;
+
+"> Reset </button></div>
+</body>
+</html>
