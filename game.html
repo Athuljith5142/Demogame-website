@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Arena</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">RPS</div>
+                <div>
+                    <h1>Rock Paper Scissors Arena</h1>
+                    <p class="subtitle">Fast rounds, streaks, history, and a smarter opponent.</p>
+                </div>
+            </div>
+            <div class="top-actions">
+                <button class="icon-button" id="themeToggle" type="button" title="Toggle theme" aria-label="Toggle theme">LT</button>
+                <button class="danger-button" id="resetButton" type="button">Reset</button>
+            </div>
+        </header>
+
+        <section class="intro" id="intro">
+            <div>
+                <p class="section-label">New match</p>
+                <h2>Pick your move and build the streak.</h2>
+                <p>Choose a difficulty, challenge the computer, and keep your stats saved between sessions. Every round lands in your match history.</p>
+                <button class="primary-button" id="startButton" type="button">Start Playing</button>
+            </div>
+            <div class="intro-art" aria-hidden="true">
+                <div class="versus-stack">
+                    <div class="floating-choice"><img src="./Assets/rock-emoji.png" alt=""></div>
+                    <div class="floating-choice"><img src="./Assets/paper-emoji.png" alt=""></div>
+                    <div class="floating-choice"><img src="./Assets/scissors-emoji.png" alt=""></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="arena">
+            <div class="panel game-panel">
+                <div class="controls-row">
+                    <div>
+                        <p class="section-label">Choose your fighter</p>
+                        <h2>Make a move</h2>
+                    </div>
+                    <div class="select-wrap">
+                        <label for="difficulty">Difficulty</label>
+                        <select id="difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="fair">Fair</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="choice-grid" aria-label="Player choices">
+                    <button class="choice-card" type="button" data-choice="rock">
+                        <img src="./Assets/rock-emoji.png" alt="Rock">
+                        <span>Rock</span>
+                    </button>
+                    <button class="choice-card" type="button" data-choice="paper">
+                        <img src="./Assets/paper-emoji.png" alt="Paper">
+                        <span>Paper</span>
+                    </button>
+                    <button class="choice-card" type="button" data-choice="scissors">
+                        <img src="./Assets/scissors-emoji.png" alt="Scissors">
+                        <span>Scissors</span>
+                    </button>
+                </div>
+
+                <div class="result-stage" id="resultStage">
+                    <div class="duelist">
+                        <strong>You</strong>
+                        <div class="empty-choice" id="playerPlaceholder">?</div>
+                        <img id="playerImage" alt="" hidden>
+                    </div>
+                    <div class="versus">VS</div>
+                    <div class="duelist">
+                        <strong>Computer</strong>
+                        <div class="empty-choice" id="computerPlaceholder">?</div>
+                        <img id="computerImage" alt="" hidden>
+                    </div>
+                </div>
+
+                <div class="result-card" id="resultCard">
+                    <div>
+                        <p class="section-label">Result</p>
+                        <p class="result-title" id="resultTitle">Ready?</p>
+                        <p class="result-detail" id="resultDetail">Start a round to reveal the showdown.</p>
+                    </div>
+                    <div class="combo-pill">
+                        <small>Combo</small>
+                        <span id="comboText">0x</span>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="side-panel">
+                <section class="panel stats">
+                    <p class="section-label">Scoreboard</p>
+                    <div class="stat-grid">
+                        <div class="stat">
+                            <span>Wins</span>
+                            <strong id="wins">0</strong>
+                        </div>
+                        <div class="stat">
+                            <span>Losses</span>
+                            <strong id="losses">0</strong>
+                        </div>
+                        <div class="stat">
+                            <span>Ties</span>
+                            <strong id="ties">0</strong>
+                        </div>
+                        <div class="stat">
+                            <span>High Score</span>
+                            <strong id="highScore">0</strong>
+                        </div>
+                        <div class="stat">
+                            <span>Best Streak</span>
+                            <strong id="bestStreak">0</strong>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel history-panel">
+                    <p class="section-label">Round History</p>
+                    <div class="history-list" id="historyList"></div>
+                </section>
+            </aside>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
