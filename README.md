@@ -1,32 +1,38 @@
-🎮 Rock, Paper, Scissors – Web Game
+#  Rock, Paper, Scissors – Web Game
+
 A simple, interactive Rock, Paper, Scissors game built using HTML, CSS, and JavaScript. Play against the computer, track your score, and enjoy a responsive user interface with smooth animations and persistent score storage using localStorage.
 
-🚀 Features
-=============
-🎲 Randomized Computer Choice
-The computer randomly selects Rock, Paper, or Scissors on each turn.
+---
 
-👆 User Interaction
-Clickable emoji buttons let the user choose their move.
+##  Features
 
-📊 Score Tracking
-Tracks Wins, Losses, and Ties using browser localStorage.
+- Randomized computer choice
+- Clickable emoji buttons
+- Win, loss, and tie score tracking
+- Score saved using localStorage
+- Emoji-based visual feedback
+- Reset option to clear the game
+- Responsive and stylish UI
 
-🧠 Persistent State
-Your score remains saved even after refreshing the page.
+---
 
-🖼️ Visual Feedback
-Displays the selected choices using emojis for both user and computer.
+##  Built With
 
-🔁 Reset Function
-One-click reset clears scores and removes selected emojis.
+- HTML5
+- CSS3
+- JavaScript (ES6)
 
-💅 Stylish UI
-Responsive layout with hover effects, shadows, and color-themed design.
+---
 
-Built With
-============
-HTML5
-CSS3
-JavaScript (ES6)
+##  Gallery
 
+<table>
+  <tr>
+    <td><img src="Assets/img1.png" width="100%"></td>
+    <td><img src="Assets/img2.png" width="100%"></td>
+  </tr>
+  <tr>
+    <td><img src="Assets/img3.png" width="100%"></td>
+    <td><img src="Assets/img4.png" width="100%"></td>
+  </tr>
+</table>
